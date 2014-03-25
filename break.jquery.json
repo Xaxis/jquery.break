@@ -1,0 +1,30 @@
+{
+  "name": "break",
+  "title": "jQuery Breakpoint",
+  "version": "1.0.0",
+  "description": "Allows useful callbacks to be fired at set \"breakpoints\" or window sizes reached upon resizing the viewport so as to create responsive web applications.",
+  "keywords": [
+    "responsive", "breakpoints", "breakpoint", "mediaquiries", "event", "DOM", "jquery", "window", "resize", "change", "monitoring"
+  ],
+  "author": {
+    "name": "Wil Neeley",
+    "url": "https://github.com/Xaxis"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/Xaxis/jquery.break/master/LICENSE.txt"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.4 <2.1"
+  },
+  "homepage": "https://github.com/Xaxis/jquery.break",
+  "doc": "https://github.com/Xaxis/jquery.break",
+  "maintainers": [
+    {
+      "name": "Wil Neeley",
+      "url": "https://github.com/Xaxis"
+    }
+  ]
+}

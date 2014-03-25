@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Break Example</title>
+    <style>
+        section {
+            margin-bottom: 30px;
+        }
+        .breakpoint-container {
+            height: 200px;
+            border: 1px dashed darkgray;
+        }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../jquery.break.min.js"></script>
+</head>
+<body>
+<h1>jQuery Break Example</h1>
+<h2>Resize your window to view breakpoint changes.</h2>
+<section>
+    <h4>Breakpoint at 760 px</h4>
+    <div class="breakpoint-container-1 breakpoint-container"></div>
+</section>
+<section>
+    <h4>Breakpoint at 1024 px</h4>
+    <div class="breakpoint-container-2 breakpoint-container"></div>
+</section>
+
+<script>
+    $(document).ready(function() {
+        $(window).break({
+            media: true,
+            points: [
+
+                // Breakpoint definition at 760 pixels
+                {
+                    point: 760,
+                    onAbove: function( width, point ) {
+                        $('.breakpoint-container-1').html('onAbove: Continuously being called above <strong>' + point + '</strong>px. <br> Screen width: <strong>' + width + '</strong>px.');
+                        console.log('Breakpoint ' + point, 'onAbove(): Continuously fired');
+                    },
+                    onBelow: function( width, point ) {
+                        $('.breakpoint-container-1').html('onBelow: Continuously being called below <strong>' + point + '</strong>px. <br> Screen width: <strong>' + width + '</strong>px.');
+                        console.log('Breakpoint ' + point, 'onBelow(): Continuously fired');
+                    },
+                    onAboveOnce: function( width, point ) {
+                        $('.breakpoint-container-1').css({border: '3px dashed deeppink'});
+                        console.log('Breakpoint ' + point, 'onAboveOnce(): Fired once');
+                    },
+                    onBelowOnce: function( width, point ) {
+                        $('.breakpoint-container-1').css({border: '1px dashed darkgray'});
+                        console.log('Breakpoint ' + point, 'onBelowOnce(): Fired once');
+                    }
+                },
+
+                // Breakpoint definition at 1024 pixels
+                {
+                    point: 1024,
+                    onAbove: function( width, point ) {
+                        $('.breakpoint-container-2').html('onAbove: Continuously being called above <strong>' + point + '</strong>px. <br> Screen width: <strong>' + width + '</strong>px.');
+                    },
+                    onBelow: function( width, point ) {
+                        $('.breakpoint-container-2').html('onBelow: Continuously being called below <strong>' + point + '</strong>px. <br> Screen width: <strong>' + width + '</strong>px.');
+                    },
+                    onAboveOnce: function( width, point ) {
+                        $('.breakpoint-container-2').css({border: '1px dashed darkgray'});
+                    },
+                    onBelowOnce: function( width, point ) {
+                        $('.breakpoint-container-2').css({border: '3px dashed deeppink'});
+
+                    }
+                }
+            ]
+        });
+    });
+</script>
+</body>
+</html>
